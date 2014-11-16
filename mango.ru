@@ -1,8 +1,9 @@
-# encoding: UTF-8
 require "mango"
 
 class Mango::Application
-  set :theme, "iWeb"
+  configure :production, :staging do
+    use Rack::Deflater
+  end
 end
 
 run Mango::Application
